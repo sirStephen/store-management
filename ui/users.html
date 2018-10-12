@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STORE MANAGER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Karla:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container-fluid">
+      <div class="nav-container">
+        <div class="logo-container general-one">
+          <h2 class="logo">S.M</h2>
+        </div>
+        <div class="nav-links-container general-one">
+          <ul class="nav-links">
+            <li class="nav-link">
+              <a href="#">Manage Inventory</a>
+            </li>
+            <li class="nav-link">
+              <a href="checkout.html">Checkout</a>
+            </li>
+            <li class="nav-link">
+              <a href="transaction.html">Transaction</a>
+            </li>
+            <li class="nav-link">
+              <a href="add-attendant.html">Sale Attendants</a>
+            </li>
+            <li class="nav-link">
+              <a href="signin.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="products">
+    <h3 class="checkout-header">Sale Attendants</h3>
+    <table id="checkout">
+      <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Username</th>
+        <th>Delete</th>
+        <th>Edit</th>
+        <th>Transactions</th>
+        <!-- <th>Delete</th>
+        <th>Edit</th> -->
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Gregory</td>
+        <td>Otiono</td>
+        <td>sir.gregg</td>
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Okoye</td>
+        <td>Damian</td>
+        <td>dumzy</td>
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Lola</td>
+        <td>Adebayo</td>
+        <td>big.Girl</td>
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Precious</td>
+        <td>Abure</td>
+        <td>miss.abure</td>
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="#">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  
+    <section class="checkout-total-container">
+      <div class="checkout-total">
+        <button class="check-out-button">Add Attendant</button>
+      </div>
+    </section>
+  </main>
+  
+  <script src="main.js"></script>
+</body>
+</html>

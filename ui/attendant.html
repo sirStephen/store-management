@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STORE MANAGER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Karla:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+<body id="attendant-page">
+  <header>
+    <div class="container-fluid">
+      <div class="nav-container">
+        <div class="logo-container general-one">
+          <h2 class="logo">S.M</h2>
+        </div>
+        <div class="nav-links-container general-one">
+          <ul class="nav-links">
+            <li class="nav-link">
+              <a href="manage-inventory.html">Manage Inventory</a>
+            </li>
+            <li class="nav-link">
+              <a href="#" class="active-attendant">Sale Attendants</a>
+            </li>
+            <li class="nav-link">
+              <a href="signin.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="products">
+    <h3 class="checkout-header">Sale Attendants</h3>
+    <form role="search" class="search dis-flex">
+      <div class="search-container dis-flex">
+        <input type="search" id="mySearch" name="q"
+          placeholder="Search Attendants"
+          aria-label="Search for products">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+    <table id="checkout">
+      <tr>
+        <th>#</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Username</th>
+        <!-- <th>Password</th> -->
+        <th>Delete</th>
+        <th>Edit</th>
+        <th>Transactions</th>
+        <!-- <th>Delete</th>
+        <th>Edit</th> -->
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Gregory</td>
+        <td>Otiono</td>
+        <td>sir.gregg</td>
+        <!-- <td>fuckyou</td> -->
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="edit-attendant.html">
+            <button class="add-button edit-button user-edit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="user-transaction.html">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Okoye</td>
+        <td>Damian</td>
+        <td>dumzy</td>
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="edit-attendant.html">
+            <button class="add-button edit-button user-edit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="user-transaction.html">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Lola</td>
+        <td>Adebayo</td>
+        <td>big.Girl</td>
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="edit-attendant.html">
+            <button class="add-button edit-button user-edit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="user-transaction.html">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Precious</td>
+        <td>Abure</td>
+        <td>miss.abure</td>
+        <td>
+          <form action="#">
+            <button class="add-button delete-button">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form action="edit-attendant.html">
+            <button class="add-button edit-button user-edit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <form action="user-transaction.html">
+            <button class="add-button edit-button">View</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+  
+    <section class="checkout-total-container">
+      <div class="checkout-total">
+        <!-- <button class="check-out-button">Add Attendant</button> -->
+        <a href="add-attendant.html" class="add-product a-default">Add Attendant</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

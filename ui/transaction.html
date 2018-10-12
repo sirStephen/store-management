@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>STORE MANAGER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Karla:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
+<body id="transaction-page">
+  <header>
+    <div class="container-fluid">
+      <div class="nav-container">
+        <div class="logo-container general-one">
+          <h2 class="logo">S.M</h2>
+        </div>
+        <div class="nav-links-container general-one">
+          <ul class="nav-links">
+            <li class="nav-link">
+              <a href="product-inventory.html">Product Inventory</a>
+            </li>
+            <li class="nav-link">
+              <a href="checkout.html">Checkout</a>
+            </li>
+            <li class="nav-link">
+              <a href="#" class="active-transaction">Transaction</a>
+            </li>
+            <li class="nav-link">
+              <a href="signin.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="products">
+    <h3 class="checkout-header">Transaction Details</h3>
+    <table id="checkout">
+      <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price(N)</th>
+        <th>Date</th>
+        <!-- <th>Delete</th>
+        <th>Edit</th> -->
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Fanta</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Coke</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Fanta</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+    </table>
+
+    <section class="checkout-total-container">
+      <div class="checkout-total">
+        <h4>Transaction Total(N): <span>600</span></h4>
+      </div>
+    </section>
+  </main>
+  
+  <script src="main.js"></script>
+</body>
+</html>

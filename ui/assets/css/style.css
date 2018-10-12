@@ -1,0 +1,285 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: 'Karla', sans-serif;
+}
+
+.dis-flex {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+section {
+  padding: 9.6rem 0;
+}
+
+/* LOGIN STYLING */
+.signin-body {
+  background-color: wheat;
+  height: 100vh;
+}
+
+.section-form {
+  max-width: 50rem;
+  margin: 0 auto;
+  /* border: 0.1rem solid #ccc; */
+  padding: 4rem 2rem;
+  background-color: white;
+}
+
+.user-tranction {
+  max-width: none;
+  width: 100%;
+}
+
+.checkout-header.transaction-header {
+  padding-top: 0;
+}
+
+.section-form-side {
+  padding: 0 2rem;
+}
+
+.login-header {
+  padding-bottom: 3.2rem;
+  color: #F15C4A;
+  text-align: center;
+}
+
+/* Full-width input fields */
+input[type=email], 
+input[type=password],
+input[type=number],
+input[type=text],
+input[type=search] {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  margin: 0.8rem 0;
+  display: inline-block;
+  border: 0.1rem solid #ccc;
+  font-size: 1.6rem;
+  font-family: 'Karla', sans-serif;
+}
+
+/* Set a style for all buttons */
+button,
+.add-product {
+  background-color: #F15C4A;
+  color: white;
+  padding: 1.2rem 2rem;
+  margin: 0.8rem 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+}
+
+button:hover,
+.add-product:hover {
+  background-color: #FF533D;
+  transition: 0.3s;
+}
+
+.a-default {
+  text-decoration: none;
+  font-size: 1.6rem;
+  display: block;
+}
+
+.back {
+  color: #F15C4A;
+  display: inline;
+}
+
+.back:hover {
+  color: red;
+}
+
+.add-product-header {
+  padding-top: 3.2rem;
+}
+
+/* NAVIGATION */
+.container-fluid {
+  color: white;
+  background-color: #F15C4A;
+  padding: 0 2rem;
+}
+
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 115.2rem;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.general-one {
+  flex: 1 1 auto;
+}
+
+.logo-container {
+  align-self: center;
+  padding-left: 2rem;
+}
+
+.logo {
+  font-family: 'Faster One', cursive;
+  font-size: 3.6rem;
+}
+
+.nav-links {
+  display: flex;
+  /* padding: 2rem 0; */
+  justify-content: flex-end;
+}
+
+.nav-link {
+  list-style-type: none;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.nav-link a:hover {
+  color: #F15C4A;
+  background: white;
+  transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+/* CHECKOUT */
+.products {
+  max-width: 115.2rem;
+  margin: 0 auto;
+}
+
+#checkout,
+#add-to-cart {
+  text-align: center;
+  width: 100%;
+}
+
+#checkout th,
+#add-to-cart th {
+  /* padding: 2rem; */
+  width: 20rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  border: none;
+  border-bottom: 1px solid #CCC;
+  height: 6.5rem;
+}
+
+td {
+  border: none;
+  border-bottom: 1px solid #CCC;
+}
+
+.checkout-header,
+.add-to-cart-header {
+  padding: 2rem;
+  text-align: center;
+  font-size: 3rem;
+  color: #F15C4A;
+}
+
+.checkout-header,
+.add-to-cart-header {
+  padding-top: 6rem;
+}
+
+.add-button {
+  width: 10rem;
+  border-radius: 0.5rem;
+  /* padding: 1.5rem 2rem; */
+  padding: 1.2rem 2rem;
+}
+
+.checkout-total-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 2rem;
+}
+
+.delete-button {
+  background-color: #e41818;
+}
+
+.delete-button:hover {
+  background-color: #f00;;
+  transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.edit-button {
+  background-color: #787575;
+}
+
+.edit-button:hover {
+  background-color: #504c4c;
+  transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+.admin {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.admin-flow {
+  color: #FF533D;
+  text-decoration: none;
+}
+
+.admin-flow:hover {
+  text-decoration: underline;
+}
+
+.user-details p {
+  padding: 0 0.5rem 2rem 0.5rem;
+  font-size: 2rem;
+  color: #787575;
+}
+
+.search-button {
+  padding: 1rem 2rem;
+  border-radius: 0;
+}
+
+.search {
+  padding-bottom: 1rem;
+}
+
+#checkout-page .active-checkout,
+#product-page .active-product,
+#transaction-page .active-transaction,
+#manage-inventory-page .active-manage-inventory,
+#attendant-page .active-attendant {
+  font-size: 700;
+  background-color: white;
+  color: #F15C4A;
+}
+
