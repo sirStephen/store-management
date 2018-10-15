@@ -1,0 +1,34 @@
+{
+  "name": "store-manager",
+  "version": "1.0.0",
+  "description": "Store Manager is a web application that helps store owners manage sales and product inventory  records. This application is meant for use in a single store.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel server/server.js --out-dir build",
+    "dev-start": "nodemon --exec babel-watch server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirStephen/store-management.git"
+  },
+  "author": "Gregory Otiono",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirStephen/store-management/issues"
+  },
+  "homepage": "https://github.com/sirStephen/store-management#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4"
+  }
+}
