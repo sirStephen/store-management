@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => res.status(200).send({
+app.get('/', (request, response) => response.status(200).send({
   message: 'YAY! Congratulations! Your first endpoint is working',
 }));
 
