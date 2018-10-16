@@ -1,6 +1,9 @@
 // server.js
-import express from 'express';
-import dotenv from 'dotenv';
+// import express from 'express';
+// import dotenv from 'dotenv';
+
+const express = require('express');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -36,6 +39,8 @@ app.post('/api/v1/sales', (request, response) => response.status(200).json({
   message: 'create a sale order',
 }));
 
-app.listen(process.env.PORT, () => {
+const server = app.listen(process.env.PORT, () => {
   console.log(`app is listening on ${process.env.PORT}!`);
 });
+
+module.exports = server;
