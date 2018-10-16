@@ -1,15 +1,38 @@
 // server.js
-// import express from 'express';
-// import dotenv from 'dotenv';
+import express from 'express';
+import dotenv from 'dotenv';
 
-const express = require('express');
-const dotenv = require('dotenv');
+import { productDB, attendantsDB } from './dummy-data/db';
+
+// const express = require('express');
+// const dotenv = require('dotenv');
 
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// const productDB = {
+//   products: [
+//     {
+//       id: 1,
+//       productName: 'biscuit',
+//       price: 20,
+//     },
+//     {
+//       id: 2,
+//       productName: 'fanta',
+//       price: 150,
+//     },
+//     {
+//       id: 3,
+//       productName: 'coke',
+//       price: 150,
+//     },
+//   ],
+// };
 
 app.get('/', (request, response) => response.status(200).send({
   message: 'YAY! Congratulations! Your first endpoint is working',
@@ -17,6 +40,7 @@ app.get('/', (request, response) => response.status(200).send({
 
 app.get('/api/v1/products', (request, response) => response.status(200).json({
   message: 'fetch all products',
+  productDB,
 }));
 
 app.get('/api/v1/products/:productid', (request, response) => response.status(200).json({
@@ -25,6 +49,7 @@ app.get('/api/v1/products/:productid', (request, response) => response.status(20
 
 app.get('/api/v1/sales', (request, response) => response.status(200).json({
   message: 'fetch all sales records',
+  attendantsDB,
 }));
 
 app.get('/api/v1/sales/:saleid', (request, response) => response.status(200).json({
