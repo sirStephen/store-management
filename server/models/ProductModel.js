@@ -1,10 +1,10 @@
-class DataModel {
+class ProductModel {
   /**
    * class constructor
    * @params {object} productData
    */
   constructor() {
-    this.datamodels = [];
+    this.productmodels = [];
   }
 
   /**
@@ -18,7 +18,7 @@ class DataModel {
       productName: productData.productName,
       price: productData.price,
     };
-    this.datamodels.push(newProductData);
+    this.productmodels.push(newProductData);
     return newProductData;
   }
 
@@ -28,14 +28,14 @@ class DataModel {
   * @returns {object} productData object
   */
   getOneProduct(productID) {
-    return this.datamodels.find(product => product.productID === productID);
+    return this.productmodels.find(product => product.productID === productID);
   }
 
   /**
    * @returns {object} return all products
    */
   getAllProducts() {
-    return this.datamodels;
+    return this.productmodels;
   }
 
   /**
@@ -44,23 +44,23 @@ class DataModel {
    */
   updateProduct(productID, productData) {
     const product = this.getOneProduct(productID);
-    const index = this.datamodels.indexOf(product);
+    const index = this.productmodels.indexOf(product);
 
-    this.datamodels[index].productName = productData.productName || product.productName;
-    this.datamodels[index].price = productData.price || product.price;
+    this.productmodels[index].productName = productData.productName || product.productName;
+    this.productmodels[index].price = productData.price || product.price;
 
-    return this.datamodels[index];
+    return this.productmodels[index];
   }
 
   /**
    * @param {productID}
    */
   delete(productID) {
-    const product = this.findOne(productID);
-    const index = this.datamodels.indexOf(product);
-    this.datamodels.splice(index, 1);
+    const product = this.getOneProduct(productID);
+    const index = this.productmodels.indexOf(product);
+    this.productmodels.splice(index, 1);
     return {};
   }
 }
 
-export default new DataModel();
+export default new ProductModel();

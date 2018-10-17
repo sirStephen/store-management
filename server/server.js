@@ -2,7 +2,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-import { productDB, attendantsDB } from './dummy-data/db';
+// import { productDB, attendantsDB } from './dummy-data/db';
+import ProductController from './controllers/ProductController';
 
 dotenv.config();
 
@@ -15,34 +16,12 @@ app.get('/', (request, response) => response.status(200).send({
   message: 'YAY! Congratulations! Your first endpoint is working',
 }));
 
-app.get('/api/v1/products', (request, response) => response.status(200).json({
-  message: 'fetch all products',
-  productDB,
-}));
+app.post('/api/v1/products', ProductController.create);
+app.get('/api/v1/products', ProductController.getAllProducts);
+app.get('/api/v1/products/:productID', ProductController.getOneProduct);
+app.put('/api/v1/products/:productID', ProductController.updateProduct);
+app.delete('/api/v1/products/:productID', ProductController.delete);
 
-app.get('/api/v1/products/:productid', (request, response) => response.status(200).json({
-  message: 'fetch a single product record',
-}));
-
-app.get('/api/v1/sales', (request, response) => response.status(200).json({
-  message: 'fetch all sales records',
-  attendantsDB,
-}));
-
-app.get('/api/v1/sales/:saleid', (request, response) => response.status(200).json({
-  message: 'fetch a single sale record',
-}));
-
-app.post('/api/v1/products', (request, response) => response.status(200).json({
-  message: 'create a product',
-}));
-
-app.post('/api/v1/sales', (request, response) => response.status(200).json({
-  message: 'create a sale order',
-}));
-
-const server = app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`app is listening on ${process.env.PORT}!`);
 });
-
-module.exports = server;
