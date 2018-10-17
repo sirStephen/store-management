@@ -4,35 +4,12 @@ import dotenv from 'dotenv';
 
 import { productDB, attendantsDB } from './dummy-data/db';
 
-// const express = require('express');
-// const dotenv = require('dotenv');
-
 dotenv.config();
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-// const productDB = {
-//   products: [
-//     {
-//       id: 1,
-//       productName: 'biscuit',
-//       price: 20,
-//     },
-//     {
-//       id: 2,
-//       productName: 'fanta',
-//       price: 150,
-//     },
-//     {
-//       id: 3,
-//       productName: 'coke',
-//       price: 150,
-//     },
-//   ],
-// };
 
 app.get('/', (request, response) => response.status(200).send({
   message: 'YAY! Congratulations! Your first endpoint is working',
