@@ -1,8 +1,6 @@
-// server.js
 import express from 'express';
 import dotenv from 'dotenv';
 
-// import { productDB, attendantsDB } from './dummy-data/db';
 import ProductController from './controllers/ProductController';
 
 dotenv.config();
@@ -16,11 +14,10 @@ app.get('/', (request, response) => response.status(200).send({
   message: 'Yipeee! It is working',
 }));
 
-app.post('/api/v1/products', ProductController.create);
-app.get('/api/v1/products', ProductController.getAllProducts);
-app.get('/api/v1/products/:productID', ProductController.getOneProduct);
-app.put('/api/v1/products/:productID', ProductController.updateProduct);
-app.delete('/api/v1/products/:productID', ProductController.delete);
+app.get('/api/v1/products', ProductController.allProducts);
+app.get('/api/v1/products/:id', ProductController.getAProduct);
+app.post('/api/v1/products', ProductController.createProduct);
+app.delete('/api/v1/products/:id', ProductController.deleteAProduct);
 
 app.listen(process.env.PORT, () => {
   console.log(`app is listening on ${process.env.PORT}!`);

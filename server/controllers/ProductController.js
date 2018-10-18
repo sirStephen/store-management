@@ -1,77 +1,89 @@
-import ProductModel from '../models/ProductModel';
+import productDb from '../dummy-data/productDb';
 
-const ProductController = {
+import {
+  parsedInt, success, error, find, isValid,
+} from '../helpers/productHelpers';
+
+/**
+ * Processes all product data
+ * @class ProductController
+ */
+
+class ProductController {
   /**
-   * @param {object} req
-   * @param {object} res
-   * @returns {object} productData object
+   * @returns {Object} Array ride offers
    */
-  create(request, response) {
-    if (!request.params.productID && !request.body.productName && !request.body.price) {
-      return response.status(400).json({
-        message: 'All fields are required',
-      });
-    }
 
-    const product = ProductModel.create(request.body);
-    return response.status(201).send(product);
-  },
-
-  /**
-   * @param {object} request
-   * @param {object} response
-   * @returns {object} products array
-   */
-  getAllProducts(request, response) {
-    const products = ProductModel.getAllProducts();
-    return response.status(200).json(products);
-  },
-
-  getOneProduct(request, response) {
-    const product = ProductModel.getOneProduct(request.params.productID);
-
-    if (!product) {
-      return response.status(404).json({
-        message: 'product not found',
-      });
-    }
-
-    return response.status(200).json(product);
-  },
+  static allProducts(request, response) {
+    return (productDb.length > 0) && success(response, 200, 'All products', productDb);
+  }
 
   /**
-   * @param {object} request
-   * @param {object} response
-   * @returns {object} update product
+   * @returns {Object} get a product
    */
-  updateProduct(response, request) {
-    const product = ProductModel.getOneProduct(request.params.productID);
 
-    if (!product) {
-      return response.status(404).json({
-        message: 'product not found',
-      });
+  static getAProduct(request, response) {
+    const { id } = request.params;
+
+    const parsedId = parsedInt(id);
+    let productDetails = '';
+
+    // check if id is a number
+    if (!(Number.isInteger(parsedId))) {
+      return error(response, 404, 'The product id does not exist');
     }
 
-    const updatedProduct = ProductModel.updateProduct(request.params.productID,
-      request.body.productName, request.body.price);
-
-    return response.status(200).json(updatedProduct);
-  },
-
-  delete(request, response) {
-    const product = ProductModel.getOneProduct(request.params.productID);
-
-    if (!product) {
-      return response.status(404).json({
-        message: 'product not found',
-      });
+    productDetails = find(productDb, parsedId);
+    // if product is found
+    if (productDetails) {
+      return success(response, 200, 'Found the product', productDetails);
     }
 
-    const deleteProduct = ProductModel.delete(request.params.productID);
+    return error(response, 404, 'The product does not exist');
+  }
 
-    return response.status(204).json(deleteProduct);
-  },
-};
+  /**
+   * @returns {Object} update array of products
+   */
+  static createProduct(request, response) {
+    const product = request.body;
+
+    // if product is valid
+    if (isValid(product)) {
+      productDb.push({
+        id: productDb.length + 1,
+        ...product,
+      });
+      return success(response, 201, 'New product was created', productDb);
+    }
+    return error(response, 400, 'Please enter the missing fields');
+  }
+
+  /**
+   * @param {id}
+   */
+  static deleteAProduct(request, response) {
+    const { id } = request.params;
+
+    const parsedId = parsedInt(id);
+
+    // check if id is a number
+    if (!(Number.isInteger(parsedId))) {
+      return error(response, 404, 'The product id does not exist');
+    }
+
+    // if product is found
+    productDb.forEach((product, index) => {
+      if (product.id === parsedId) {
+        productDb.splice(index, 1);
+        return success(response, 204, 'This product is delete', productDb);
+      }
+
+      // return error(response, 404, 'An error occurred');
+    });
+
+    return error(response, 404, 'The product does not exist');
+  }
+}
 
 export default ProductController;
