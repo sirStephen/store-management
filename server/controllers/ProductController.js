@@ -11,7 +11,7 @@ import {
 
 class ProductController {
   /**
-   * @returns {Object} Array ride offers
+   * @returns {Object} Array of products
    */
 
   static allProducts(request, response) {
