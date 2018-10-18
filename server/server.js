@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (request, response) => response.status(200).send({
-  message: 'YAY! Congratulations! Your first endpoint is working',
+  message: 'Yipeee! It is working',
 }));
 
 app.post('/api/v1/products', ProductController.create);
