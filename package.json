@@ -8,7 +8,8 @@
     "build": "babel server/server.js --out-dir build",
     "dev-start": "nodemon --exec babel-watch server/server.js",
     "cover": "istanbul cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -40,5 +41,8 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "nodemon": "^1.18.4"
+  },
+  "engines": {
+    "node": "9.11.2"
   }
 }
