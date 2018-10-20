@@ -61,7 +61,7 @@ section {
 }
 
 /* Full-width input fields */
-input[type=email], 
+input[type=email],
 input[type=password],
 input[type=number],
 input[type=text],
@@ -231,7 +231,8 @@ td {
 }
 
 .delete-button:hover {
-  background-color: #f00;;
+  background-color: #f00;
+  ;
   transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
@@ -264,9 +265,18 @@ td {
   color: #787575;
 }
 
+.search-container {
+  position: relative;
+}
+
 .search-button {
   padding: 1rem 2rem;
   border-radius: 0;
+  position: absolute;
+  top: 0;
+  width: 6rem;
+  height: 4.5rem;
+  right: 0;
 }
 
 .search {
@@ -282,4 +292,3 @@ td {
   background-color: white;
   color: #F15C4A;
 }
-
