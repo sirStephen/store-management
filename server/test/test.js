@@ -75,18 +75,18 @@ describe('Test for all sales api', () => {
         done();
       });
   });
-});
 
-// describe('Test for all sales api', () => {
-//   it('Get a sales', (done) => { // <= Pass in done callback
-//     chai.request(server)
-//       .get('/api/v1/sales/:id')
-//       .end((error, response) => {
-//         expect(response).to.have.status(404);
-//         done(); // <= Call done to signal callback end
-//       });
-//   });
-// });
+  it('It should get a SINGLE SALE on /api/v1/sales/:id GET', (done) => {
+    chai.request(app)
+      .post('/api/v1/sales/:id')
+      .send({ productName: 'garri', price: '800' })
+      .end((error, response) => {
+        response.should.have.status(404);
+        response.body.should.be.a('object');
+        done();
+      });
+  });
+});
 
 // describe('Test for all sales api', () => {
 //   it('POST sale', (done) => { // <= Pass in done callback
