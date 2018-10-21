@@ -19,7 +19,16 @@ describe('Products', () => {
       });
   });
 
-  it('It should get a SINGLE PRODUCT on /api/v1/products/:id GET');
+  it('It should get a SINGLE PRODUCT on /api/v1/products/:id GET', (done) => {
+    chai.request(app)
+      .post('/api/v1/products/:id')
+      .send({ productName: 'bread', price: '300' })
+      .end((error, response) => {
+        response.should.have.status(404);
+        response.body.should.be.a('object');
+        done();
+      });
+  });
 
   it('It should create a NEW PRODUCT on /api/v1/products POST', (done) => {
     chai.request(app)
