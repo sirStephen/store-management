@@ -26,8 +26,8 @@ app.get('/api/v1/sales', SalesController.allSales);
 app.get('/api/v1/sales/:id', SalesController.getASale);
 app.post('/api/v1/sales', SalesController.createSale);
 
-const server = app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`app is listening on ${process.env.PORT}!`);
 });
 
-export default server;
+export default app;
