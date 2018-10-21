@@ -18,7 +18,9 @@ describe('Products', () => {
         done();
       });
   });
+
   it('It should get a SINGLE PRODUCT on /api/v1/products/:id GET');
+
   it('It should create a NEW PRODUCT on /api/v1/products POST', (done) => {
     chai.request(app)
       .post('/api/v1/products')
