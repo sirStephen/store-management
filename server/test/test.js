@@ -28,7 +28,7 @@ describe('Products', () => {
         response.should.be.json;
         response.body.should.be.a('object');
         response.body.should.have.property('message');
-        // response.body.message.should.be.a('string');
+        response.body.message.should.be.a('string');
         done();
       });
   });
