@@ -7,6 +7,7 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
+// TEST FOR PRODUCTS
 describe('Products', () => {
   it('it should get ALL PRODUCTS on /api/v1/products GET', (done) => {
     chai.request(app)
@@ -62,17 +63,19 @@ describe('Products', () => {
   });
 });
 
-// // TEST FOR SALES
-// describe('Test for all sales api', () => {
-//   it('Get all sales', (done) => { // <= Pass in done callback
-//     chai.request(server)
-//       .get('/api/v1/sales')
-//       .end((error, response) => {
-//         expect(response).to.have.status(200);
-//         done(); // <= Call done to signal callback end
-//       });
-//   });
-// });
+// TEST FOR SALES
+describe('Test for all sales api', () => {
+  it('it should get ALL PRODUCTS on /api/v1/products GET', (done) => {
+    chai.request(app)
+      .get('/api/v1/sales')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        done();
+      });
+  });
+});
 
 // describe('Test for all sales api', () => {
 //   it('Get a sales', (done) => { // <= Pass in done callback
