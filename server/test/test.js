@@ -27,7 +27,7 @@ describe('Products', () => {
         response.should.have.status(400);
         response.should.be.json;
         response.body.should.be.a('object');
-        response.body.should.have.property('Please enter the missing fields');
+        response.body.should.have.property('message');
         // response.body.message.should.be.a('string');
         done();
       });
