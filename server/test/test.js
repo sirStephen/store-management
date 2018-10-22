@@ -21,10 +21,10 @@ describe('Products', () => {
 
   it('It should get a SINGLE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
-      .post('/api/v1/products/:id')
-      .send({ productName: 'garri', price: '800' })
+      .get('/api/v1/products/1')
       .end((error, response) => {
-        response.should.have.status(404);
+        console.log(response.body);
+        response.should.have.status(200);
         response.body.should.be.a('object');
         done();
       });
