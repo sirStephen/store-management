@@ -24,7 +24,6 @@ class ProductController {
 
   static getAProduct(request, response) {
     const { id } = request.params;
-    console.log(id);
 
     const parsedId = parsedInt(id);
     let productDetails = '';
