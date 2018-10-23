@@ -23,6 +23,18 @@ body {
   align-items: center;
 }
 
+.logo.increase-h2 {
+  font-size: 8rem;
+}
+
+.top-padding {
+  padding-top: 3rem;
+}
+
+.login-header-p {
+  font-size: 2rem;
+}
+
 section {
   padding: 9.6rem 0;
 }
@@ -34,11 +46,15 @@ section {
 }
 
 .section-form {
-  max-width: 50rem;
+  max-width: 100rem;
   margin: 0 auto;
   /* border: 0.1rem solid #ccc; */
   padding: 4rem 2rem;
   background-color: white;
+}
+
+.form {
+  padding: 3.2rem 0;
 }
 
 .user-tranction {
