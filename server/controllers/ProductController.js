@@ -2,7 +2,7 @@ import productDb from '../dummy-data/productDb';
 
 import {
   parsedInt, success, error, find, isValid,
-} from '../helpers/productHelpers';
+} from '../helpers/helpers';
 
 /**
  * Processes all product data
