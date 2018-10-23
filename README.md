@@ -28,11 +28,11 @@ records. This application is meant for use in a single store.
 
 <ul>
   <li><a href="https://nodejs.org/en/">Node js</a></li>
-  <li><a href="https://expressjs.com/"></a>Express js</li>
-  <li><a href="https://developer.mozilla.org/bm/docs/Web/JavaScript"></a>JavaScript es6+</li>
+  <li><a href="https://expressjs.com/">Express js</a></li>
+  <li><a href="https://developer.mozilla.org/bm/docs/Web/JavaScript">JavaScript es6+</a></li>
   <li><a href="https://developer.mozilla.org/kab/docs/Web/HTML">Html and Css</a></li>
   <li><a href="https://mochajs.org/">Mocha</a></li>
-  <li><a href="https://www.chaijs.com/"></a>Chai</li>
+  <li><a href="https://www.chaijs.com/">Chai</a></li>
 </ul>
 
 # Api Endpoints
@@ -68,6 +68,7 @@ records. This application is meant for use in a single store.
 # Links
 
 gh-pages https://sirstephen.github.io/store-management/ui/index.html
+
 heroku https://storemgt.herokuapp.com/
 
 # Author
