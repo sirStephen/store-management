@@ -2,7 +2,7 @@ import productDb from '../dummy-data/productDb';
 
 import {
   parsedInt, success, error, find, isValid,
-} from '../helpers/productHelpers';
+} from '../helpers/helpers';
 
 /**
  * Processes all product data
@@ -24,7 +24,6 @@ class ProductController {
 
   static getAProduct(request, response) {
     const { id } = request.params;
-    console.log(id);
 
     const parsedId = parsedInt(id);
     let productDetails = '';
