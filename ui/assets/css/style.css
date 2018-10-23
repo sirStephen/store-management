@@ -303,6 +303,21 @@ td {
   width: 50%;
 }
 
+.form-welcome {
+  font-size: 1.6rem;
+  color: #F15C4A;
+}
+
+.form-div {
+  padding: 2rem 0;
+}
+
+footer {
+  padding: 3rem 0;
+  background: white;
+  color: #F15C4A;
+}
+
 #checkout-page .active-checkout,
 #product-page .active-product,
 #transaction-page .active-transaction,
