@@ -12,11 +12,9 @@ export const error = (response, statusCode, message) => response.status(statusCo
 // find a product
 export const find = (productArray, id) => productArray.find(product => (id === product.id));
 
-// Validate products
 export const isValid = (product) => {
-  // validations
-  const productName = product.productName.trim() !== '';
-  const price = typeof (product.price) === 'number' && product.price > 0;
+  const productName = product.productName.trim() === '';
+  const price = (typeof (product.price) === 'number') && product.price > 0;
 
-  return productName && price;
+  return { productName, price };
 };
