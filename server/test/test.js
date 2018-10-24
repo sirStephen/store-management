@@ -47,7 +47,7 @@ describe('Products', () => {
       .post('/api/v1/products')
       .send({ productName: 'bread', price: '300' })
       .end((error, response) => {
-        response.should.have.status(400);
+        response.should.have.status(201);
         response.should.be.json;
         response.body.should.be.a('object');
         response.body.should.have.property('message');
@@ -124,9 +124,8 @@ describe('Test for all sales api', () => {
   it('It should create a NEW SALE on /api/v1/sales POST', (done) => {
     chai.request(app)
       .post('/api/v1/sales')
-      .send({ productName: 'bread', price: '300' })
       .end((error, response) => {
-        response.should.have.status(400);
+        response.should.have.status(201);
         response.should.be.json;
         response.body.should.be.a('object');
         response.body.should.have.property('message');
