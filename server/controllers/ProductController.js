@@ -64,25 +64,30 @@ class ProductController {
    */
   static deleteAProduct(request, response) {
     const { id } = request.params;
+    let foundProduct = false;
 
     const parsedId = parsedInt(id);
 
     // check if id is a number
     if (!(Number.isInteger(parsedId))) {
-      return error(response, 404, 'The product id does not exist');
+      return error(response, 404, 'Please make sure it is an integer');
     }
 
     // if product is found
     productDb.forEach((product, index) => {
       if (product.id === parsedId) {
+        foundProduct = true;
         productDb.splice(index, 1);
+      }
+
+      if (foundProduct) {
         return success(response, 204, 'This product is delete', productDb);
       }
 
-      // return error(response, 404, 'An error occurred');
+      return error(response, 400, 'The product does not exist');
     });
 
-    return error(response, 404, 'The product does not exist');
+    return error(response, 400, 'There was an error in connection');
   }
 }
 
