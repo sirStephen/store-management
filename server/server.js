@@ -1,5 +1,5 @@
-import express from '../../../../.cache/typescript/2.9/node_modules/@types/express';
-import dotenv from '../../../../.cache/typescript/2.9/node_modules/@types/dotenv';
+import express from 'express';
+import dotenv from 'dotenv';
 
 import ProductController from './controllers/ProductController';
 import SalesController from './controllers/SalesController';
