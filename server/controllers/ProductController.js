@@ -84,7 +84,7 @@ class ProductController {
         return success(response, 204, 'This product is delete', productDb);
       }
 
-      return error(response, 400, 'The product does not exist');
+      return error(response, 400, 'Th#161439094e product does not exist');
     });
 
     return error(response, 400, 'There was an error in connection');
