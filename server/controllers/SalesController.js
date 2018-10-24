@@ -1,7 +1,7 @@
 import salesDb from '../dummy-data/salesDb';
 import {
   success, parsedInt, error, find, isValid,
-} from '../helpers/productHelpers';
+} from '../helpers/helpers';
 
 /**
  * processes all sales data

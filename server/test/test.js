@@ -1,5 +1,5 @@
 import chai, { assert, expect } from 'chai';
-import chaiHttp from 'chai-http';
+import chaiHttp from '../../../../../.cache/typescript/2.9/node_modules/@types/chai-http';
 import server from '../server';
 
 chai.use(chaiHttp);
