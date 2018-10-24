@@ -99,11 +99,24 @@ describe('Test for all sales api', () => {
 
   it('It should get a SINGLE SALE on /api/v1/sales/:id GET', (done) => {
     chai.request(app)
-      .post('/api/v1/sales/:id')
-      .send({ productName: 'garri', price: '800' })
+      .get('/api/v1/sales/1')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('message');
+        done();
+      });
+  });
+
+  it('It should get a SINGLE SALE on /api/v1/sales/:id GET', (done) => {
+    chai.request(app)
+      .get('/api/v1/sales/as')
       .end((error, response) => {
         response.should.have.status(404);
+        response.should.be.json;
         response.body.should.be.a('object');
+        response.body.should.have.property('message');
         done();
       });
   });
