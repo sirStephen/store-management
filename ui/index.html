@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>STORE MANAGER</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Karla:400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
+
 <body class="signin-body">
-  <section>
-    <div class="section-form-side">
+  <section class="top-padding">
+    <div class="section-form-side top-padding">
       <div class="section-form">
         <div class="login-header">
-          <h2>Login Form</h2>
+          <h2 class="logo increase-h2">S.M</h2>
+          <p class="login-header-p">Store Management System</p>
         </div>
         <form class="form" action="checkout.html">
-          <div class="container">
-            <label for="uname"><p>Username</p></label>
+          <p class="form-welcome">Welcome! Please fill in your credentials</p class="form-welcome">
+          <div class="container form-div">
+            <label for="uname">
+              <p>Username</p>
+            </label>
             <input type="text" placeholder="Enter Username" name="uname" required>
-      
-            <label for="psw"><p>Password</p></label>
+
+            <label for="psw">
+              <p>Password</p>
+            </label>
             <input type="password" placeholder="Enter Password" name="psw" required>
-              
+
             <button type="submit">Login</button>
 
             <div class="admin">
@@ -30,8 +38,10 @@
             </div>
           </div>
         </form>
-      </div> 
+      </div>
     </div>
   </section>
+  <footer class="dis-flex footer">&copy;2018 store management system</footer>
 </body>
+
 </html>

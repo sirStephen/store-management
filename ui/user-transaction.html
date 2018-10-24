@@ -1,65 +1,109 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>STORE MANAGER</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
-<body class="signin-body">
-  <section>
-    <div class="section-form-side">
-      <div class="section-form user-tranction">
-        <a href="attendant.html" class="a-default back">&lt; Back</a>
-        <main class="products">
-          <h3 class="checkout-header add-product-header">Transaction Details</h3>
-          <div class="user-details dis-flex">
-            <p>Gregory </p>
-            <p>Otiono</p>
-          </div>
-          <table id="checkout">
-            <tr>
-              <th>#</th>
-              <th>Product Name</th>
-              <th>Quantity</th>
-              <th>Price(N)</th>
-              <th>Date</th>
-              <!-- <th>Delete</th>
-              <th>Edit</th> -->
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>Fanta</td>
-              <td>2</td>
-              <td>100</td>
-              <td>12/10/2018</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Coke</td>
-              <td>2</td>
-              <td>100</td>
-              <td>12/10/2018</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Fanta</td>
-              <td>2</td>
-              <td>100</td>
-              <td>12/10/2018</td>
-            </tr>
-          </table>
-      
-          <section class="checkout-total-container">
-            <div class="checkout-total">
-              <h4>Transaction Total(N): <span>600</span></h4>
-            </div>
-          </section>
-        </main>
-      </div> 
+
+<body id="transaction-page">
+  <header>
+    <div class="container-fluid">
+      <div class="nav-container">
+        <div class="logo-container general-one">
+          <h2 class="logo">S.M</h2>
+        </div>
+        <div class="nav-links-container general-one">
+          <ul class="nav-links">
+            <li class="nav-link">
+              <a href="manage-inventory.html">Manage Inventory</a>
+            </li>
+            <li class="nav-link">
+              <a href="attendant.html">Sale Attendants</a>
+            </li>
+            <li class="nav-link">
+              <a href="#" class="active-transaction">Transaction</a>
+            </li>
+            <li class="nav-link">
+              <a href="index.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </section>
+  </header>
+  <main class="products">
+    <h3 class="checkout-header">Transaction Details</h3>
+    <form role="search" class="search dis-flex">
+      <div class="search-container dis-flex">
+        <input type="search" id="mySearch" name="q" placeholder="Search By Attendants" aria-label="Search for products">
+        <button class="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+    <table id="checkout">
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price(N)</th>
+        <th>Date</th>
+        <!-- <th>Delete</th>
+        <th>Edit</th> -->
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Gregory Otiono</td>
+        <td>Fanta</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Jane Doe</td>
+        <td>Coke</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Gregory Otiono</td>
+        <td>Fanta</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Jane Doe</td>
+        <td>Fanta</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>John Doe</td>
+        <td>Fanta</td>
+        <td>2</td>
+        <td>100</td>
+        <td>12/10/2018</td>
+      </tr>
+    </table>
+  </main>
+  <footer class="dis-flex footer">&copy;2018 store management system</footer>
+
+  <script src="main.js"></script>
 </body>
+
 </html>

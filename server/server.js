@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (request, response) => response.status(200).send({
   message: 'Yipeee! It is working',
@@ -26,8 +26,8 @@ app.get('/api/v1/sales', SalesController.allSales);
 app.get('/api/v1/sales/:id', SalesController.getASale);
 app.post('/api/v1/sales', SalesController.createSale);
 
-const server = app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`app is listening on ${process.env.PORT}!`);
 });
 
-export default server;
+export default app;

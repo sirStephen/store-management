@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>STORE MANAGER</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Faster+One|Karla:400,700" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 </head>
+
 <body id="attendant-page">
   <header>
     <div class="container-fluid">
@@ -25,7 +28,10 @@
               <a href="#" class="active-attendant">Sale Attendants</a>
             </li>
             <li class="nav-link">
-              <a href="signin.html">Logout</a>
+              <a href="user-transaction.html">Transactions</a>
+            </li>
+            <li class="nav-link">
+              <a href="index.html">Logout</a>
             </li>
           </ul>
         </div>
@@ -36,9 +42,7 @@
     <h3 class="checkout-header">Sale Attendants</h3>
     <form role="search" class="search dis-flex">
       <div class="search-container dis-flex">
-        <input type="search" id="mySearch" name="q"
-          placeholder="Search Attendants"
-          aria-label="Search for products">
+        <input type="search" id="mySearch" name="q" placeholder="Search Attendants" aria-label="Search for products">
         <button class="search-button">
           <i class="fas fa-search"></i>
         </button>
@@ -53,16 +57,12 @@
         <!-- <th>Password</th> -->
         <th>Delete</th>
         <th>Edit</th>
-        <th>Transactions</th>
-        <!-- <th>Delete</th>
-        <th>Edit</th> -->
       </tr>
       <tr>
         <td>1</td>
         <td>Gregory</td>
         <td>Otiono</td>
         <td>sir.gregg</td>
-        <!-- <td>fuckyou</td> -->
         <td>
           <form action="#">
             <button class="add-button delete-button">Delete</button>
@@ -71,11 +71,6 @@
         <td>
           <form action="edit-attendant.html">
             <button class="add-button edit-button user-edit">Edit</button>
-          </form>
-        </td>
-        <td>
-          <form action="user-transaction.html">
-            <button class="add-button edit-button">View</button>
           </form>
         </td>
       </tr>
@@ -94,11 +89,6 @@
             <button class="add-button edit-button user-edit">Edit</button>
           </form>
         </td>
-        <td>
-          <form action="user-transaction.html">
-            <button class="add-button edit-button">View</button>
-          </form>
-        </td>
       </tr>
       <tr>
         <td>3</td>
@@ -113,11 +103,6 @@
         <td>
           <form action="edit-attendant.html">
             <button class="add-button edit-button user-edit">Edit</button>
-          </form>
-        </td>
-        <td>
-          <form action="user-transaction.html">
-            <button class="add-button edit-button">View</button>
           </form>
         </td>
       </tr>
@@ -136,14 +121,9 @@
             <button class="add-button edit-button user-edit">Edit</button>
           </form>
         </td>
-        <td>
-          <form action="user-transaction.html">
-            <button class="add-button edit-button">View</button>
-          </form>
-        </td>
       </tr>
     </table>
-  
+
     <section class="checkout-total-container">
       <div class="checkout-total">
         <!-- <button class="check-out-button">Add Attendant</button> -->
@@ -151,5 +131,7 @@
       </div>
     </section>
   </main>
+  <footer class="dis-flex footer">&copy;2018 store management system</footer>
 </body>
+
 </html>
