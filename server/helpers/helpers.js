@@ -13,7 +13,7 @@ export const error = (response, statusCode, message) => response.status(statusCo
 export const find = (productArray, id) => productArray.find(product => (id === product.id));
 
 export const isValid = (product) => {
-  const productName = product.productName.trim() === '';
+  const productName = product.productName !== '';
   const price = (typeof (product.price) === 'number') && product.price > 0;
 
   return { productName, price };
