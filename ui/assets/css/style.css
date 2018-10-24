@@ -13,7 +13,7 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.6rem;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 .dis-flex {
@@ -21,6 +21,18 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
+}
+
+.logo.increase-h2 {
+  font-size: 8rem;
+}
+
+.top-padding {
+  padding-top: 3rem;
+}
+
+.login-header-p {
+  font-size: 2rem;
 }
 
 section {
@@ -34,11 +46,15 @@ section {
 }
 
 .section-form {
-  max-width: 50rem;
+  max-width: 100rem;
   margin: 0 auto;
   /* border: 0.1rem solid #ccc; */
   padding: 4rem 2rem;
   background-color: white;
+}
+
+.form {
+  padding: 3.2rem 0;
 }
 
 .user-tranction {
@@ -56,29 +72,29 @@ section {
 
 .login-header {
   padding-bottom: 3.2rem;
-  color: #F15C4A;
+  color: #f15c4a;
   text-align: center;
 }
 
 /* Full-width input fields */
-input[type=email], 
-input[type=password],
-input[type=number],
-input[type=text],
-input[type=search] {
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="text"],
+input[type="search"] {
   width: 100%;
   padding: 1.2rem 2rem;
   margin: 0.8rem 0;
   display: inline-block;
   border: 0.1rem solid #ccc;
   font-size: 1.6rem;
-  font-family: 'Karla', sans-serif;
+  font-family: "Karla", sans-serif;
 }
 
 /* Set a style for all buttons */
 button,
 .add-product {
-  background-color: #F15C4A;
+  background-color: #f15c4a;
   color: white;
   padding: 1.2rem 2rem;
   margin: 0.8rem 0;
@@ -91,7 +107,7 @@ button,
 
 button:hover,
 .add-product:hover {
-  background-color: #FF533D;
+  background-color: #ff533d;
   transition: 0.3s;
 }
 
@@ -102,7 +118,7 @@ button:hover,
 }
 
 .back {
-  color: #F15C4A;
+  color: #f15c4a;
   display: inline;
 }
 
@@ -117,7 +133,7 @@ button:hover,
 /* NAVIGATION */
 .container-fluid {
   color: white;
-  background-color: #F15C4A;
+  background-color: #f15c4a;
   padding: 0 2rem;
 }
 
@@ -139,7 +155,7 @@ button:hover,
 }
 
 .logo {
-  font-family: 'Faster One', cursive;
+  font-family: "Faster One", cursive;
   font-size: 3.6rem;
 }
 
@@ -151,6 +167,7 @@ button:hover,
 
 .nav-link {
   list-style-type: none;
+  padding: 0 1rem;
 }
 
 .nav-link a {
@@ -162,7 +179,7 @@ button:hover,
 }
 
 .nav-link a:hover {
-  color: #F15C4A;
+  color: #f15c4a;
   background: white;
   transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
@@ -191,13 +208,13 @@ table {
 
 tr {
   border: none;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #ccc;
   height: 6.5rem;
 }
 
 td {
   border: none;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #ccc;
 }
 
 .checkout-header,
@@ -205,7 +222,7 @@ td {
   padding: 2rem;
   text-align: center;
   font-size: 3rem;
-  color: #F15C4A;
+  color: #f15c4a;
 }
 
 .checkout-header,
@@ -231,7 +248,7 @@ td {
 }
 
 .delete-button:hover {
-  background-color: #f00;;
+  background-color: #f00;
   transition: all 0.5s cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
@@ -250,7 +267,7 @@ td {
 }
 
 .admin-flow {
-  color: #FF533D;
+  color: #ff533d;
   text-decoration: none;
 }
 
@@ -264,13 +281,46 @@ td {
   color: #787575;
 }
 
+.search-container {
+  position: relative;
+}
+
 .search-button {
   padding: 1rem 2rem;
   border-radius: 0;
+  position: absolute;
+  top: 0;
+  width: 6rem;
+  height: 4.5rem;
+  right: 0;
 }
 
 .search {
   padding-bottom: 1rem;
+}
+
+.search-container {
+  width: 50%;
+}
+
+.form-welcome {
+  font-size: 1.6rem;
+  color: #F15C4A;
+}
+
+.form-div {
+  padding: 2rem 0;
+}
+
+footer {
+  padding: 3rem 0;
+  /* background: white;
+  color: #F15C4A; */
+}
+
+.footer {
+  background: #f15c4a;
+  color: white;
 }
 
 #checkout-page .active-checkout,
@@ -280,6 +330,5 @@ td {
 #attendant-page .active-attendant {
   font-size: 700;
   background-color: white;
-  color: #F15C4A;
+  color: #f15c4a;
 }
-
