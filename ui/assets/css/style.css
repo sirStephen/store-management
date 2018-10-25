@@ -408,6 +408,25 @@ footer {
   }
 }
 
+@media only screen and (max-width: 490px) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  .edit-button,
+  .delete-button {
+    width: 6rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .add-button,
+  .edit-button,
+  button {
+    padding: 1rem 0.5rem;
+    font-size: 1.4rem;
+  }
+}
+
 @media only screen and (max-width: 460px) {
   #overlay {
     width: 100%;
