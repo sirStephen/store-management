@@ -6,8 +6,7 @@
   "scripts": {
     "test": "mocha 'server/test/*.js' --timeout 10000 --require babel-core/register --exit",
     "dev-start": "nodemon --exec babel-watch server/server.js",
-    "cover": "istanbul cover _mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "nyc npm test && nyc --reporter=lcov --reporter=text-lcov | coveralls",
     "start": "babel-node server/server.js"
   },
   "repository": {
@@ -40,7 +39,8 @@
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "nyc": "^13.1.0"
   },
   "engines": {
     "node": "9.11.2"
