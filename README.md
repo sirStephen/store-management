@@ -5,7 +5,7 @@
 Store Manager is a web application that helps store owners manage sales and product inventory
 records. This application is meant for use in a single store.
 
-# features
+## features
 
 1. Attendants and admin should be about to view all products
 2. Attendant can search and add products to buyer’s cart.
@@ -14,7 +14,7 @@ records. This application is meant for use in a single store.
 5. Admin can see sales and can filter by attendants.
 6. Admin can add, modify and delete products.
 
-# Tech Tools
+## Tech Tools
 
 <ul>
   <li><a href="https://nodejs.org/en/">Node js</a></li>
@@ -25,42 +25,42 @@ records. This application is meant for use in a single store.
   <li><a href="https://www.chaijs.com/">Chai</a></li>
 </ul>
 
-# Api Endpoints
+## Api Endpoints
 
-| Endpoints                   | Functionalities                             |
-| --------------------------- | ------------------------------------------- |
-| GET /api/v1/products        | get all products                            |
-| GET /api/v1/products/:id    | get a specific product                      |
-| POST /api/v1/products       | creates a product                           |
-| DELETE /api/v1/products/:id | delete a product                            |
-| GET /api/v1/sales           | get all sales record of attendants          |
-| GET /api/v1/sales/:id       | get a specific sales record of an attendant |
-| POST /api/v1/sales          | create new attendant                        |
+| Endpoints                     | Functionalities                             |
+| ----------------------------- | ------------------------------------------- |
+| GET _/api/v1/products_        | get all products                            |
+| GET _/api/v1/products/:id_    | get a specific product                      |
+| POST _/api/v1/products_       | creates a product                           |
+| DELETE _/api/v1/products/:id_ | delete a product                            |
+| GET _/api/v1/sales_           | get all sales record of attendants          |
+| GET _/api/v1/sales/:id_       | get a specific sales record of an attendant |
+| POST _/api/v1/sales_          | create new attendant                        |
 
-# Get Started
+## Get Started
 
-1. clone repo and cd into directory
+**1. clone repo and cd into directory**
 
-- git clone https://github.com/sirStephen/store-management.git
+- git clone _https://github.com/sirStephen/store-management.git_
 
-2. install dependencies
+**2. install dependencies**
 
 - npm install
 
-3. start app
+**3. start app**
 
 - npm run dev-start
 
-4. test
+**4. test**
 
 - npm run test
 
-# Links
+## Links
 
-gh-pages https://sirstephen.github.io/store-management/ui/index.html
+gh-pages _https://sirstephen.github.io/store-management/ui/index.html_
 
-heroku https://storemgt.herokuapp.com/
+heroku _https://storemgt.herokuapp.com/_
 
-# Author
+## Author
 
 Gregory Otiono
