@@ -332,3 +332,84 @@ footer {
   background-color: white;
   color: #f15c4a;
 }
+
+.has-padding-bottom {
+  padding-bottom: 15rem;
+}
+
+/* testing */
+#overlay {
+  position: fixed;
+  display: none;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .95;
+  background-color: #f15c4a;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#overlay:hover {
+  cursor: pointer;
+}
+
+#menu-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+  color: white;
+  width: 100%;
+}
+
+#menu {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  padding: 2rem;
+  right: 0;
+  color: white;
+  font-size: 2rem;
+  display: none;
+}
+
+.cross {
+  z-index: 2;
+  padding: 2rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.menu-nav {
+  padding: 1rem 0;
+}
+
+#menu:hover {
+  cursor: pointer;
+}
+
+.nav-font-side {
+  font-size: 2rem;
+}
+
+/* Reponsive css */
+@media only screen and (max-width: 750px) {
+  .nav-links-container {
+    display: none;
+  }
+
+  #menu {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  #overlay {
+    width: 100%;
+  }
+}
