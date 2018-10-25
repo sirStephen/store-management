@@ -56,18 +56,18 @@ describe('Products', () => {
       });
   });
 
-  it('It should DELETE PRODUCT on /api/v1/products/id DELETE', (done) => {
-    chai.request(app)
-      .get('/api/v1/products')
-      .end((error, response) => {
-        chai.request(app)
-          .delete('/api/v1/products/1')
-          .end((error, response) => {
-            response.should.have.status(204);
-            done();
-          });
-      });
-  });
+  // it('It should DELETE PRODUCT on /api/v1/products/id DELETE', (done) => {
+  //   chai.request(app)
+  //     .get('/api/v1/products')
+  //     .end((error, response) => {
+  //       chai.request(app)
+  //         .delete('/api/v1/products/1')
+  //         .end((error, response) => {
+  //           response.should.have.status(204);
+  //           done();
+  //         });
+  //     });
+  // });
 
   it('It should DELETE PRODUCT on /api/v1/products/id DELETE', (done) => {
     chai.request(app)
