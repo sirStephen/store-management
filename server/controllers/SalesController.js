@@ -1,4 +1,5 @@
 import salesDb from '../dummy-data/salesDb';
+import usersDb from '../dummy-data/usersDb';
 import {
   success, parseInteger, error, find, isValid,
 } from '../helpers/helpers';
@@ -62,7 +63,30 @@ class SalesController {
    * @memberOf SalesControllers
    */
   static createSale(request, response) {
+    let userObj = '';
+
+    const { userId } = request.body;
+
+    const parseUserId = parseInteger(userId);
     const sale = request.body;
+
+    if (!(Number.isInteger(parseUserId))) {
+      return error(response, 404, 'Please make sure it is an integer');
+    }
+
+    usersDb.map((user) => {
+      if (user.userId === parseUserId) {
+        userObj = user;
+      }
+
+      return null;
+    });
+
+    if (userObj.type !== 'admin') {
+      return response.status(401).json({
+        message: 'You are not authorized',
+      });
+    }
 
     // if sale is valid
     if (isValid(sale)) {
