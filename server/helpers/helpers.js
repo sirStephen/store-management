@@ -1,5 +1,5 @@
 /* Check the id of every request to see whether it can be converted to number */
-export const parsedInt = id => ((!(/^\d+$/.test(id))) ? NaN : parseInt(id, 10));
+export const parseInteger = id => ((!(/^\d+$/.test(id))) ? NaN : parseInt(id, 10));
 
 // when a request is successful
 export const success = (response, statusCode, message, data) => response.status(statusCode)

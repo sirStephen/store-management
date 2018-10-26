@@ -1,30 +1,46 @@
 import salesDb from '../dummy-data/salesDb';
 import {
-  success, parsedInt, error, find, isValid,
+  success, parseInteger, error, find, isValid,
 } from '../helpers/helpers';
 
 /**
  * processes all sales data
+ * @exports
  * @class SalesController
  */
 
 class SalesController {
   /**
-   * @returns {Object} array of sales
+   *
+   * @description get all sales
+   * @staticmethod
+   * @param {object} request - Request object
+   * @param {object} response - Reponse object
+   * @returns {json} response.json
+   * @memberOf SalesControllers
    */
   static allSales(request, response) {
     return (salesDb.length > 0) && success(response, 200, 'All sales', salesDb);
   }
 
+  /**
+   *
+   * @description get a sales
+   * @staticmethod
+   * @param {object} request - Request object
+   * @param {object} response - Reponse object
+   * @returns {json} response.json
+   * @memberOf SalesControllers
+   */
   static getASale(request, response) {
     const { id } = request.params;
 
-    const parseId = parsedInt(id);
+    const parseId = parseInteger(id);
     let saleDetails = '';
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
-      return error(response, 404, 'The sale id does not exist');
+      return error(response, 404, 'The sale id should be an integer');
     }
 
     saleDetails = find(salesDb, parseId);
@@ -36,6 +52,15 @@ class SalesController {
     return error(response, 404, 'The sale record does not exist');
   }
 
+  /**
+   *
+   * @description create a sale
+   * @staticmethod
+   * @param {object} request - Request object
+   * @param {object} response - Reponse object
+   * @returns {json} response.json
+   * @memberOf SalesControllers
+   */
   static createSale(request, response) {
     const sale = request.body;
 
@@ -47,7 +72,7 @@ class SalesController {
         time: new Date(),
       });
 
-      return success(response, 201, 'A sale was made', salesDb);
+      return success(response, 201, 'A sale was made');
     }
 
     return error(response, 400, 'Please enter the missing fields');

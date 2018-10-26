@@ -15,10 +15,11 @@ describe('Products', () => {
         response.should.have.status(200);
         response.should.be.json;
         response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('All products');
+        response.body.should.have.property('data').should.be.a('object');
         done();
       });
   });
-
 
   it('It should get a SINGLE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
@@ -26,7 +27,10 @@ describe('Products', () => {
       .end((error, response) => {
         console.log(response.body);
         response.should.have.status(200);
+        response.should.be.json;
         response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('Found the product');
+        response.body.should.have.property('data').should.be.a('object');
         done();
       });
   });
@@ -38,6 +42,8 @@ describe('Products', () => {
         console.log(response.body);
         response.should.have.status(404);
         response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('Found the product');
+        response.body.should.have.property('data').should.be.a('object');
         done();
       });
   });
@@ -56,18 +62,18 @@ describe('Products', () => {
       });
   });
 
-  // it('It should DELETE PRODUCT on /api/v1/products/id DELETE', (done) => {
-  //   chai.request(app)
-  //     .get('/api/v1/products')
-  //     .end((error, response) => {
-  //       chai.request(app)
-  //         .delete('/api/v1/products/1')
-  //         .end((error, response) => {
-  //           response.should.have.status(204);
-  //           done();
-  //         });
-  //     });
-  // });
+  it('It should DELETE PRODUCT on /api/v1/products/id DELETE', (done) => {
+    chai.request(app)
+      .get('/api/v1/products')
+      .end((error, response) => {
+        chai.request(app)
+          .delete('/api/v1/products/1')
+          .end((error, response) => {
+            response.should.have.status(204);
+            done();
+          });
+      });
+  });
 
   it('It should DELETE PRODUCT on /api/v1/products/id DELETE', (done) => {
     chai.request(app)
