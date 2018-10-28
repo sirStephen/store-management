@@ -4,6 +4,7 @@ import usersDb from '../dummy-data/usersDb';
 import {
   parseInteger, success, error, find, isValid,
 } from '../helpers/helpers';
+import pool from '../db/index';
 
 /**
  * Processes all product data
@@ -23,7 +24,28 @@ class ProductController {
    */
 
   static allProducts(request, response) {
-    return (productDb.length > 0) && success(response, 200, 'All products', productDb);
+    pool.query('SELECT * FROM products ORDER BY id ASC', (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
+
+      if (result.rowCount > 0) {
+        const getAllProducts = result.rows;
+
+        return response.status(200).json({
+          message: 'List of all products',
+          getAllProducts,
+        });
+      }
+
+      return response.status(404).json({
+        message: 'no product product',
+        err,
+      });
+    });
   }
 
   /**
