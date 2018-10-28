@@ -2,7 +2,7 @@ import productDb from '../dummy-data/productDb';
 import usersDb from '../dummy-data/usersDb';
 
 import {
-  parseInteger, success, error, find, isValid,
+  parseInteger, success, error, isValid,
 } from '../helpers/helpers';
 import pool from '../db/index';
 
@@ -61,20 +61,36 @@ class ProductController {
     const { id } = request.params;
 
     const parseId = parseInteger(id);
-    let productDetails = '';
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
       return error(response, 404, 'The product id must be an integer');
     }
 
-    productDetails = find(productDb, parseId);
-    // if product is found
-    if (productDetails) {
-      return success(response, 200, 'Found the product', productDetails);
-    }
+    pool.query('SELECT * FROM products WHERE id = $1', [id], (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
 
-    return error(response, 404, 'The product does not exist');
+      if (result.rowCount > 0) {
+        const oneProduct = result.rows;
+
+        return response.status(200).json({
+          message: 'found product',
+          oneProduct,
+        });
+      }
+
+      return response.status(404).json({
+        message: 'no product found',
+        err,
+      });
+    });
+
+    return null;
   }
 
   /**
