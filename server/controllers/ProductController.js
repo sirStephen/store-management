@@ -1,9 +1,7 @@
-import productDb from '../dummy-data/productDb';
-import usersDb from '../dummy-data/usersDb';
-
 import {
-  parseInteger, success, error, find, isValid,
+  parseInteger, error,
 } from '../helpers/helpers';
+import pool from '../db/index';
 
 /**
  * Processes all product data
@@ -23,7 +21,28 @@ class ProductController {
    */
 
   static allProducts(request, response) {
-    return (productDb.length > 0) && success(response, 200, 'All products', productDb);
+    pool.query('SELECT * FROM products ORDER BY id ASC', (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
+
+      if (result.rowCount > 0) {
+        const getAllProducts = result.rows;
+
+        return response.status(200).json({
+          message: 'List of all products',
+          getAllProducts,
+        });
+      }
+
+      return response.status(404).json({
+        message: 'no productS found',
+        err,
+      });
+    });
   }
 
   /**
@@ -39,20 +58,36 @@ class ProductController {
     const { id } = request.params;
 
     const parseId = parseInteger(id);
-    let productDetails = '';
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
       return error(response, 404, 'The product id must be an integer');
     }
 
-    productDetails = find(productDb, parseId);
-    // if product is found
-    if (productDetails) {
-      return success(response, 200, 'Found the product', productDetails);
-    }
+    pool.query('SELECT * FROM products WHERE id = $1', [id], (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
 
-    return error(response, 404, 'The product does not exist');
+      if (result.rowCount > 0) {
+        const oneProduct = result.rows;
+
+        return response.status(200).json({
+          message: 'found product',
+          oneProduct,
+        });
+      }
+
+      return response.status(404).json({
+        message: 'no product found',
+        err,
+      });
+    });
+
+    return null;
   }
 
   /**
@@ -65,42 +100,60 @@ class ProductController {
    * @memberOf ProductControllers
    */
   static createProduct(request, response) {
-    let userObj = '';
+    const {
+      productname, price, quantity, minquantity, createat,
+    } = request.body;
 
-    const { userId } = request.body;
+    pool.query(
+      'INSERT INTO products(productname, price, quantity, minquantity, createat) VALUES($1, $2, $3, $4, $5)',
+      [productname, price, quantity, minquantity, createat],
+      (err, result) => {
+        if (err) {
+          return response.status(500).json({
+            message: 'cannot connect to database',
+            err,
+          });
+        }
 
-    const parseUserId = parseInteger(userId);
+        if (result) {
+          return response.status(200).json({
+            message: 'product was created',
+          });
+        }
 
-    // check if userId is a number
-    if (!(Number.isInteger(parseUserId))) {
+        return null;
+      },
+    );
+  }
+
+  static updateProduct(request, response) {
+    const { id } = request.params;
+
+    const parseId = parseInteger(id);
+
+    // check if id is a number
+    if (!(Number.isInteger(parseId))) {
       return error(response, 404, 'Please make sure it is an integer');
     }
 
-    usersDb.map((user) => {
-      if (user.userId === parseUserId) {
-        userObj = user;
+    const {
+      productname, price, quantity, createat,
+    } = request.body;
+
+    pool.query('UPDATE products SET productname = ($1), price = ($2), quantity = ($3), createat = ($4) WHERE id = ($5)', [productname, price, quantity, createat, id], (err) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
       }
 
-      return null;
+      return response.status(200).json({
+        message: 'product was updated successfully',
+      });
     });
 
-    if (userObj.type !== 'admin') {
-      return response.status(401).json({
-        message: 'You are not authorized',
-      });
-    }
-
-    const product = request.body;
-
-    // if product is valid
-    if (isValid(product)) {
-      productDb.push({
-        id: productDb.length + 1,
-        ...product,
-      });
-      return success(response, 201, 'New product was created');
-    }
-    return error(response, 400, 'Please enter the missing fields');
+    return error(response, 400, 'Sorry the product id does not exist');
   }
 
   /**
@@ -122,18 +175,21 @@ class ProductController {
       return error(response, 404, 'Please make sure it is an integer');
     }
 
-    // if product is found
-    productDb.forEach((product, index) => {
-      if (product.id === parseId) {
-        productDb.splice(index, 1);
+    pool.query('DELETE FROM products WHERE id = ($1)', [id], (err) => {
+      if (err) {
+        response.status(400).json({
+          message: 'product id does not exist',
+          err,
+        });
+        return;
       }
 
-      return response.status(204).json({
-        message: 'product was deleted',
+      response.status(200).json({
+        message: 'product was delete successfully',
       });
     });
 
-    return error(response, 400, 'Sorry the product id does not exist');
+    return null;
   }
 }
 

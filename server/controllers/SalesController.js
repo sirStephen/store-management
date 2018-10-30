@@ -1,8 +1,5 @@
-import salesDb from '../dummy-data/salesDb';
-import usersDb from '../dummy-data/usersDb';
-import {
-  success, parseInteger, error, find, isValid,
-} from '../helpers/helpers';
+import pool from '../db/index';
+import { parseInteger, error } from '../helpers/helpers';
 
 /**
  * processes all sales data
@@ -21,7 +18,28 @@ class SalesController {
    * @memberOf SalesControllers
    */
   static allSales(request, response) {
-    return (salesDb.length > 0) && success(response, 200, 'All sales', salesDb);
+    pool.query('SELECT * FROM sales ORDER BY id ASC', (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
+
+      if (result.rowCount > 0) {
+        const getAllProducts = result.rows;
+
+        return response.status(200).json({
+          message: 'List of all sales',
+          getAllProducts,
+        });
+      }
+
+      return response.status(404).json({
+        message: 'no sale found',
+        err,
+      });
+    });
   }
 
   /**
@@ -37,20 +55,36 @@ class SalesController {
     const { id } = request.params;
 
     const parseId = parseInteger(id);
-    let saleDetails = '';
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
       return error(response, 404, 'The sale id should be an integer');
     }
 
-    saleDetails = find(salesDb, parseId);
-    // if sale is found
-    if (saleDetails) {
-      return success(response, 200, 'Found the sale record', saleDetails);
-    }
+    pool.query('SELECT * FROM sales WHERE id = $1', [id], (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
 
-    return error(response, 404, 'The sale record does not exist');
+      if (result.rowCount > 0) {
+        const oneProduct = result.rows;
+
+        return response.status(200).json({
+          message: 'found sale',
+          oneProduct,
+        });
+      }
+
+      return response.status(404).json({
+        message: 'no sale found',
+        err,
+      });
+    });
+
+    return null;
   }
 
   /**
@@ -63,43 +97,30 @@ class SalesController {
    * @memberOf SalesControllers
    */
   static createSale(request, response) {
-    let userObj = '';
+    const {
+      productname, price, quantity, total, createat,
+    } = request.body;
 
-    const { userId } = request.body;
+    pool.query(
+      'INSERT INTO sales(productname, price, quantity, total, createat) VALUES($1, $2, $3, $4, $5)',
+      [productname, price, quantity, total, createat],
+      (err, result) => {
+        if (err) {
+          return response.status(500).json({
+            message: 'cannot connect to database',
+            err,
+          });
+        }
 
-    const parseUserId = parseInteger(userId);
-    const sale = request.body;
+        if (result) {
+          return response.status(200).json({
+            message: 'sale was created',
+          });
+        }
 
-    if (!(Number.isInteger(parseUserId))) {
-      return error(response, 404, 'Please make sure it is an integer');
-    }
-
-    usersDb.map((user) => {
-      if (user.userId === parseUserId) {
-        userObj = user;
-      }
-
-      return null;
-    });
-
-    if (userObj.type !== 'admin') {
-      return response.status(401).json({
-        message: 'You are not authorized',
-      });
-    }
-
-    // if sale is valid
-    if (isValid(sale)) {
-      salesDb.push({
-        id: salesDb.length + 1,
-        ...sale,
-        time: new Date(),
-      });
-
-      return success(response, 201, 'A sale was made');
-    }
-
-    return error(response, 400, 'Please enter the missing fields');
+        return null;
+      },
+    );
   }
 }
 
