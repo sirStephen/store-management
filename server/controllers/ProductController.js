@@ -125,6 +125,51 @@ class ProductController {
       },
     );
   }
+
+  /**
+   *
+   * @description delete a product
+   * @static method
+   * @param {object} request - Request object
+   * @param {object} response - Reponse object
+   * @returns {json} response.json
+   * @memberOf ProductControllers
+   */
+  static deleteAProduct(request, response) {
+    const { id } = request.params;
+
+    const parseId = parseInteger(id);
+
+    // check if id is a number
+    if (!(Number.isInteger(parseId))) {
+      return error(response, 404, 'Please make sure it is an integer');
+    }
+
+    pool.query('DELETE FROM products WHERE id = ($1)', [id], (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
+
+      if (result) {
+        if (result.rowCount > 0) {
+          return response.status(200).json({
+            message: 'product was delete successfully',
+          });
+        }
+
+        return response.status(400).json({
+          message: 'product id does not exist',
+        });
+      }
+
+      return null;
+    });
+
+    return null;
+  }
 }
 
 export default ProductController;
