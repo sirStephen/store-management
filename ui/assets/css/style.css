@@ -81,7 +81,8 @@ input[type="email"],
 input[type="password"],
 input[type="number"],
 input[type="text"],
-input[type="search"] {
+input[type="search"],
+select {
   width: 100%;
   padding: 1.2rem 2rem;
   margin: 0.8rem 0;
@@ -89,6 +90,10 @@ input[type="search"] {
   border: 0.1rem solid #ccc;
   font-size: 1.6rem;
   font-family: "Karla", sans-serif;
+}
+
+select {
+  background-color: white;
 }
 
 /* Set a style for all buttons */
@@ -333,11 +338,6 @@ footer {
   color: #f15c4a;
 }
 
-.has-padding-bottom {
-  padding-bottom: 15rem;
-}
-
-/* testing */
 #overlay {
   position: fixed;
   display: none;
@@ -397,9 +397,12 @@ footer {
   font-size: 2rem;
 }
 
-/* Reponsive css */
-@media only screen and (max-width: 750px) {
-  .nav-links-container {
+.view-port {
+  height: 100vh;
+}
+
+@media only screen and (max-width: 795px) {
+  .nav-links {
     display: none;
   }
 
@@ -408,26 +411,24 @@ footer {
   }
 }
 
-@media only screen and (max-width: 490px) {
+@media only screen and (max-width: 515px) {
   body {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
-  .edit-button,
-  .delete-button {
-    width: 6rem;
-    padding: 1rem 0.5rem;
-  }
-
-  .add-button,
-  .edit-button,
   button {
-    padding: 1rem 0.5rem;
-    font-size: 1.4rem;
+    padding: 1rem;
+    font-size: 1.2rem;
   }
-}
 
-@media only screen and (max-width: 460px) {
+  .add-button {
+    width: 8rem;
+  }
+
+  .add-product {
+    font-size: 1.2rem;
+  }
+
   #overlay {
     width: 100%;
   }
