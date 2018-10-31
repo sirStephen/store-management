@@ -101,26 +101,39 @@ class SalesController {
       productname, price, quantity, total, createat,
     } = request.body;
 
-    pool.query(
-      'INSERT INTO sales(productname, price, quantity, total, createat) VALUES($1, $2, $3, $4, $5)',
-      [productname, price, quantity, total, createat],
-      (err, result) => {
-        if (err) {
-          return response.status(500).json({
-            message: 'cannot connect to database',
-            err,
-          });
-        }
+    pool.query('SELECT * FROM products WHERE productname = $1', [productname], (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'error in connecting to database',
+          err,
+        });
+      }
 
-        if (result) {
+      if (!result.rowCount) {
+        return response.status(400).json({
+          message: 'product does not exist',
+        });
+      }
+
+      pool.query(
+        'INSERT INTO sales(productname, price, quantity, total, createat) VALUES($1, $2, $3, $4, $5)',
+        [productname, price, quantity, total, createat],
+        (e) => {
+          if (e) {
+            return response.status(500).json({
+              message: 'cannot connect to database',
+              err,
+            });
+          }
+
           return response.status(200).json({
             message: 'sale was created',
           });
-        }
+        },
+      );
 
-        return null;
-      },
-    );
+      return null;
+    });
   }
 }
 
