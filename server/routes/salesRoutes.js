@@ -7,12 +7,12 @@ import SalesController from '../controllers/SalesController';
 import SaleValidation from '../validation/SaleValidation';
 
 // middlewares
-import { isUser } from '../middlewares/checkAuth';
+import { isUser, isAdmin } from '../middlewares/checkAuth';
 
 const router = Router();
 
-router.get('/sales', SalesController.allSales);
+router.get('/sales', isAdmin, SalesController.allSales);
 router.get('/sales/:id', isUser, SalesController.getASale);
-router.post('/sales', SaleValidation.isCreateSaleValid, SalesController.createSale);
+router.post('/sales', SaleValidation.isCreateSaleValid, isUser, SalesController.createSale);
 
 export default router;
