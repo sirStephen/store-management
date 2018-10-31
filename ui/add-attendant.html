@@ -11,7 +11,7 @@
 </head>
 
 <body class="signin-body">
-  <section>
+  <section class="view-port">
     <div class="section-form-side">
       <div class="section-form">
         <a href="attendant.html" class="a-default back">&lt; Back</a>
@@ -39,6 +39,14 @@
               <p>Password</p>
             </label>
             <input type="password" placeholder="Enter Username" name="password" required>
+
+            <label for="role">
+              <p>Role</p>
+            </label>
+            <select name="role">
+              <option value="admin">admin</option>
+              <option value="user">user</option>
+            </select>
 
             <button type="submit">Add Attendant</button>
           </div>

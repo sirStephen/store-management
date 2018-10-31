@@ -81,7 +81,8 @@ input[type="email"],
 input[type="password"],
 input[type="number"],
 input[type="text"],
-input[type="search"] {
+input[type="search"],
+select {
   width: 100%;
   padding: 1.2rem 2rem;
   margin: 0.8rem 0;
@@ -89,6 +90,10 @@ input[type="search"] {
   border: 0.1rem solid #ccc;
   font-size: 1.6rem;
   font-family: "Karla", sans-serif;
+}
+
+select {
+  background-color: white;
 }
 
 /* Set a style for all buttons */
@@ -331,4 +336,100 @@ footer {
   font-size: 700;
   background-color: white;
   color: #f15c4a;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .95;
+  background-color: #f15c4a;
+  z-index: 2;
+  cursor: pointer;
+}
+
+#overlay:hover {
+  cursor: pointer;
+}
+
+#menu-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+  color: white;
+  width: 100%;
+}
+
+#menu {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  padding: 2rem;
+  right: 0;
+  color: white;
+  font-size: 2rem;
+  display: none;
+}
+
+.cross {
+  z-index: 2;
+  padding: 2rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.menu-nav {
+  padding: 1rem 0;
+}
+
+#menu:hover {
+  cursor: pointer;
+}
+
+.nav-font-side {
+  font-size: 2rem;
+}
+
+.view-port {
+  height: 100vh;
+}
+
+@media only screen and (max-width: 795px) {
+  .nav-links {
+    display: none;
+  }
+
+  #menu {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 515px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  button {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .add-button {
+    width: 8rem;
+  }
+
+  .add-product {
+    font-size: 1.2rem;
+  }
+
+  #overlay {
+    width: 100%;
+  }
 }
