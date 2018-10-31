@@ -7,14 +7,14 @@ import ProductController from '../controllers/ProductController';
 import ProductValidation from '../validation/ProductValidation';
 
 // middlewares
-import checkAuth from '../middlewares/checkAuth';
+import { isAdmin } from '../middlewares/checkAuth';
 
 const router = Router();
 
 router.get('/products', ProductController.allProducts);
 router.get('/products/:id', ProductController.getAProduct);
-router.post('/products', ProductValidation.isCreateProductValid, checkAuth, ProductController.createProduct);
-router.put('/products/:id', checkAuth, ProductValidation.isUpdateProductValid, ProductController.updateProduct);
-router.delete('/products/:id', checkAuth, ProductController.deleteAProduct);
+router.post('/products', ProductValidation.isCreateProductValid, isAdmin, ProductController.createProduct);
+router.put('/products/:id', ProductValidation.isUpdateProductValid, isAdmin, ProductController.updateProduct);
+router.delete('/products/:id', isAdmin, ProductController.deleteAProduct);
 
 export default router;

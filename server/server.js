@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 
 import productRoutes from './routes/productRoutes';
+import salesRoutes from './routes/salesRoutes';
 import usersRoutes from './routes/usersRoutes';
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.get('/', (request, response) => response.status(200).send({
 }));
 
 app.use('/api/v1', productRoutes);
+app.use('/api/v1', salesRoutes);
 app.use('/api/v1', usersRoutes);
 
 app.listen(process.env.PORT, () => {
