@@ -68,7 +68,7 @@ class AuthControllers {
               id: result.rows[0].id,
               role: result.rows[0].role,
             },
-          }, 'secret', { expiresIn: 86400 });
+          }, process.env.JWT_KEY, { expiresIn: 86400 });
           return response.status(200).json({
             message: 'you have successfully logged in',
             username: result.rows[0].username,
