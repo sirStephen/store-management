@@ -14,7 +14,7 @@ const router = Router();
 router.get('/products', ProductController.allProducts);
 router.get('/products/:id', ProductController.getAProduct);
 router.post('/products', ProductValidation.isCreateProductValid, checkAuth, ProductController.createProduct);
-router.put('/products/:id', ProductValidation.isUpdateProductValid, ProductController.updateProduct);
-router.delete('/products/:id', ProductController.deleteAProduct);
+// router.put('/products/:id', ProductValidation.isUpdateProductValid, ProductController.updateProduct);
+// router.delete('/products/:id', ProductController.deleteAProduct);
 
 export default router;
