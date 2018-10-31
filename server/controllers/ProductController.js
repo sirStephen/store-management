@@ -128,6 +128,55 @@ class ProductController {
 
   /**
    *
+   * @description update a product
+   * @static method
+   * @param {object} request - Request object
+   * @param {object} response - Reponse object
+   * @returns {json} response.json
+   * @memberOf ProductControllers
+   */
+  static updateProduct(request, response) {
+    const { id } = request.params;
+
+    const parseId = parseInteger(id);
+
+    // check if id is a number
+    if (!(Number.isInteger(parseId))) {
+      return error(response, 404, 'Please make sure it is an integer');
+    }
+
+    const {
+      productname, price, quantity, createat,
+    } = request.body;
+
+    pool.query('UPDATE products SET productname = ($1), price = ($2), quantity = ($3), createat = ($4) WHERE id = ($5)', [productname, price, quantity, createat, id], (err, result) => {
+      if (err) {
+        return response.status(500).json({
+          message: 'cannot connect to database',
+          err,
+        });
+      }
+
+      if (result) {
+        if (result.rowCount > 0) {
+          return response.status(200).json({
+            message: 'product was updated successfully',
+          });
+        }
+
+        return response.status(400).json({
+          message: 'product id does not exist',
+        });
+      }
+
+      return null;
+    });
+
+    return null;
+  }
+
+  /**
+   *
    * @description delete a product
    * @static method
    * @param {object} request - Request object
