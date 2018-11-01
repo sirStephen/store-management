@@ -39,7 +39,7 @@ class ProductController {
       }
 
       return response.status(404).json({
-        message: 'no productS found',
+        message: 'no products found',
         err,
       });
     });
