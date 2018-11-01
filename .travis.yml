@@ -7,3 +7,17 @@ cache:
 
 after_success:
   - npm run coveralls
+
+services:
+ - postgresql
+
+before_script:
+ - psql -c 'create database store-management;' -U postgres
+ - npm run test:setup
+ - npm run test:pulldown
+
+script:
+ - npm test
+
+after_success:
+  - npm run coveralls
