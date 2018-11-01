@@ -12,7 +12,7 @@ services:
  - postgresql
 
 before_script:
- - psql -c 'create database store-management;' -U postgres
+ - psql -c 'create database storemanagement;' -U postgres
  - npm run test:setup
  - npm run test:pulldown
 
