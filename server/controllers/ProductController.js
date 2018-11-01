@@ -61,7 +61,7 @@ class ProductController {
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
-      return error(response, 404, 'The product id must be an integer');
+      return error(response, 406, 'The product id must be an integer');
     }
 
     pool.query('SELECT * FROM products WHERE id = $1', [id], (err, result) => {
@@ -191,7 +191,7 @@ class ProductController {
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
-      return error(response, 404, 'Please make sure it is an integer');
+      return error(response, 406, 'Please make sure it is an integer');
     }
 
     pool.query('DELETE FROM products WHERE id = ($1)', [id], (err, result) => {

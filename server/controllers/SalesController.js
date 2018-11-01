@@ -58,7 +58,7 @@ class SalesController {
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
-      return error(response, 404, 'The sale id should be an integer');
+      return error(response, 406, 'The sale id should be an integer');
     }
 
     pool.query('SELECT * FROM sales WHERE id = $1', [id], (err, result) => {
@@ -110,7 +110,7 @@ class SalesController {
       }
 
       if (!result.rowCount) {
-        return response.status(400).json({
+        return response.status(404).json({
           message: 'product does not exist',
         });
       }
@@ -126,7 +126,7 @@ class SalesController {
             });
           }
 
-          return response.status(200).json({
+          return response.status(201).json({
             message: 'sale was created',
           });
         },
