@@ -2,32 +2,13 @@ import chaiHttp from 'chai-http';
 import chai from 'chai';
 
 import app from '../server';
+import { admin } from './testToken';
 
-let token;
 const should = chai.should();
 chai.use(chaiHttp);
 
 // TEST FOR PRODUCTS
 describe('Products', () => {
-  before((done)=>{
-    const admin = {
-      username: 'sir.gregg',
-      password: 'password1'
-    }
-    chai.request(app)
-      .post('/api/v1/users/login')
-      .send(admin)
-      .end((error, response) => {
-        response.should.have.status(200);
-        response.should.be.json;
-        response.body.should.be.a('object');
-        response.body.should.have.property('message').eql('you have successfully logged in');
-        token = response.body.token;
-        
-        done();
-      });
-  });
-
   it('it should get ALL PRODUCTS on /api/v1/products GET', (done) => {
     chai.request(app)
       .get('/api/v1/products')
@@ -80,7 +61,7 @@ describe('Products', () => {
   it('It should get a CREATE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
       .post('/api/v1/products')
-      .set('Authorization', `Bearer ${ token }`) 
+      .set('Authorization', admin) 
       .send({ productname: 'bread', price: 300, quantity: 3, minquantity: 3, createat: 'NOW()' })
       .end((error, response) => {
         console.log(response.body);
@@ -151,7 +132,7 @@ describe('Products', () => {
   it('It should get a CREATE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
       .put('/api/v1/products/2')
-      .set('Authorization', `Bearer ${ token }`) 
+      .set('Authorization', admin) 
       .send({ productname: 'bread', price: 300, quantity: 3, createat: 'NOW()' })
       .end((error, response) => {
         console.log(response.body);
@@ -166,7 +147,7 @@ describe('Products', () => {
   it('It should get a CREATE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
       .put('/api/v1/products/as')
-      .set('Authorization', `Bearer ${ token }`) 
+      .set('Authorization', admin) 
       .send({ productname: 'bread', price: 300, quantity: 3, createat: 'NOW()' })
       .end((error, response) => {
         console.log(response.body);
@@ -181,7 +162,7 @@ describe('Products', () => {
   it('It should DELETE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
       .delete('/api/v1/products/999')
-      .set('Authorization', `Bearer ${ token }`) 
+      .set('Authorization', admin) 
       .end((error, response) => {
         console.log(response.body);
         response.should.have.status(404);
@@ -195,7 +176,7 @@ describe('Products', () => {
   it('It should DELETE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
       .delete('/api/v1/products/a')
-      .set('Authorization', `Bearer ${ token }`) 
+      .set('Authorization', admin) 
       .end((error, response) => {
         console.log(response.body);
         response.should.have.status(406);
@@ -209,7 +190,7 @@ describe('Products', () => {
   it('It should DELETE PRODUCT on /api/v1/products/:id GET', (done) => {
     chai.request(app)
       .delete('/api/v1/products/999')
-      .set('Authorization', `Bearer ${ token }`) 
+      .set('Authorization', admin) 
       .end((error, response) => {
         console.log(response.body);
         response.should.have.status(404);
