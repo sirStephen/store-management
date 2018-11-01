@@ -24,7 +24,7 @@ class ProductController {
     pool.query('SELECT * FROM products ORDER BY id ASC', (err, result) => {
       if (err) {
         return response.status(500).json({
-          message: 'cannot connect to database',
+          message: 'error in fetching',
           err,
         });
       }
@@ -67,7 +67,7 @@ class ProductController {
     pool.query('SELECT * FROM products WHERE id = $1', [id], (err, result) => {
       if (err) {
         return response.status(500).json({
-          message: 'cannot connect to database',
+          message: 'error in fetching',
           err,
         });
       }
@@ -116,7 +116,7 @@ class ProductController {
         }
 
         if (result) {
-          return response.status(200).json({
+          return response.status(201).json({
             message: 'product was created',
           });
         }
@@ -164,7 +164,7 @@ class ProductController {
           });
         }
 
-        return response.status(400).json({
+        return response.status(404).json({
           message: 'product id does not exist',
         });
       }
@@ -209,7 +209,7 @@ class ProductController {
           });
         }
 
-        return response.status(400).json({
+        return response.status(404).json({
           message: 'product id does not exist',
         });
       }

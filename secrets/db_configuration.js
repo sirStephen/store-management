@@ -1,6 +1,6 @@
 module.exports = {
   user: 'admin',
   host: 'localhost',
-  database: 'store-management',
+  database: 'storemanagement',
   port: 5432,
 };
