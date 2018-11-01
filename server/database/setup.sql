@@ -5,7 +5,6 @@ CREATE TABLE products(
   quantity smallint not null,
   minquantity smallint not null,
   createat timestamp
-  -- CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE sales(
@@ -15,7 +14,6 @@ CREATE TABLE sales(
   quantity smallint not null,
   total smallint not null,
   createat timestamp
-  -- CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE users(
@@ -25,7 +23,6 @@ CREATE TABLE users(
   username text unique not null,
   password text,
   role character varying(50)
-  -- CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 
 INSERT INTO products(productname, price, quantity, minquantity, createat)
