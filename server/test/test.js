@@ -1,26 +1,26 @@
-// import chai from 'chai';
-// import chaiHttp from 'chai-http';
-// import app from '../server';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import app from '../server';
 
-// const should = chai.should();
+const should = chai.should();
 
-// chai.use(chaiHttp);
+chai.use(chaiHttp);
 
-// // TEST FOR PRODUCTS
-// describe('Products', () => {
-//   it('it should get ALL PRODUCTS on /api/v1/products GET', (done) => {
-//     chai.request(app)
-//       .get('/api/v1/products')
-//       .end((error, response) => {
-//         response.should.have.status(200);
-//         response.should.be.json;
-//         response.body.should.be.a('object');
-//         response.body.should.have.property('message').eql('List of all products');
-//         response.body.should.have.property('message').should.be.a('object');
-//         should.not.exist(error);
-//         done();
-//       });
-//   });
+// TEST FOR PRODUCTS
+describe('Products', () => {
+  it('it should get ALL PRODUCTS on /api/v1/products GET', (done) => {
+    chai.request(app)
+      .get('/api/v1/products')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('List of all products');
+        response.body.should.have.property('message').should.be.a('object');
+        should.not.exist(error);
+        done();
+      });
+  });
 
 //   // it('it should get ALL PRODUCTS on /api/v1/products GET', (done) => {
 //   //   chai.request(app)
@@ -176,4 +176,4 @@
 // //         done();
 // //       });
 // //   });
-// });
+});
