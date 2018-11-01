@@ -13,7 +13,7 @@ env:
 
 before_script:
   - psql -c "CREATE DATABASE storemanagement;" -U postgres
-  - psql -U admin -d storemanagement -f ./server/database/setup.sql
+  - psql -U postres -d storemanagement -f ./server/database/setup.sql
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
