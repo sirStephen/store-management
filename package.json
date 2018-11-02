@@ -4,7 +4,7 @@
   "description": "Store Manager is a web application that helps store owners manage sales and product inventory  records. This application is meant for use in a single store.",
   "main": "server.js",
   "scripts": {
-    "test": "mocha 'server/test/*.js' --timeout 10000 --require babel-core/register --exit",
+    "test": "cross-env NODE_ENV=test mocha 'server/test/*.js' --timeout 10000 --require babel-core/register --exit",
     "dev-start": "nodemon --exec babel-watch server/server.js",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "start": "babel-node server/server.js",
@@ -42,6 +42,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-watch": "^2.0.7",
     "coffeescript": "^2.3.2",
+    "cross-env": "^5.2.0",
     "eslint": "^5.7.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
