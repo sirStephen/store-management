@@ -24,6 +24,51 @@ describe('users', () => {
       });
   });
 
+  it('admin should register on /api/v1/users/signup POST', (done) => {
+    chai.request(app)
+      .post('/api/v1/users/signup')
+      .set('Authorization', admin) 
+      .send({ firstname: 'x', lastname: 'xx', username: 'xxx', password: 'xxxxxxx', role: '' })
+      .end((error, response) => {
+        console.log(response.body)
+        response.should.have.status(400);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('ensure all fields are completely filled');
+        done();
+      });
+  });
+
+  it('admin should register on /api/v1/users/signup POST', (done) => {
+    chai.request(app)
+      .post('/api/v1/users/login')
+      .set('Authorization', admin) 
+      .send({ username: 'sir.gregg', password: 'diuuiaoid' })
+      .end((error, response) => {
+        console.log(response.body)
+        response.should.have.status(400);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('Invalid password');
+        done();
+      });
+  });
+
+  it('admin should register on /api/v1/users/signup POST', (done) => {
+    chai.request(app)
+      .post('/api/v1/users/login')
+      .set('Authorization', admin) 
+      .send({ username: 'chidi', password: 'diuuiaoid' })
+      .end((error, response) => {
+        console.log(response.body)
+        response.should.have.status(404);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('Could not find a user matching your request');
+        done();
+      });
+  });
+
   it('admin should register on /api/v1/users/login POST', (done) => {
     chai.request(app)
       .post('/api/v1/users/login')

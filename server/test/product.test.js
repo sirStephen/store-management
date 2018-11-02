@@ -205,18 +205,18 @@ describe('Products', () => {
       });
   });
 
-    // it('It should DELETE PRODUCT on /api/v1/products/:id GET', (done) => {
-  //   chai.request(app)
-  //     .delete('/api/v1/products/1')
-  //     .set('Authorization', `Bearer ${ token }`) 
-  //     .send({ productname: 'bread', price: 300, quantity: 3, createat: 'NOW()' })
-  //     .end((error, response) => {
-  //       console.log(response.body);
-  //       response.should.have.status(200);
-  //       response.should.be.json;
-  //       response.body.should.be.a('object');
-  //       response.body.should.have.property('message').eql('product was delete successfully');
-  //       done();
-  //     });
-  // });
+    it('It should DELETE PRODUCT on /api/v1/products/:id GET', (done) => {
+    chai.request(app)
+      .delete('/api/v1/products/1')
+      .set('Authorization', admin) 
+      .send({ productname: 'bread', price: 300, quantity: 3, createat: 'NOW()' })
+      .end((error, response) => {
+        console.log(response.body);
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('message').eql('product was delete successfully');
+        done();
+      });
+  });
 });
