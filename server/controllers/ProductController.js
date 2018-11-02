@@ -66,6 +66,7 @@ class ProductController {
 
     pool.query('SELECT * FROM products WHERE id = $1', [id], (err, result) => {
       if (err) {
+        console.log(err);
         return response.status(500).json({
           message: 'error in fetching',
           err,
@@ -109,6 +110,7 @@ class ProductController {
       [productname, price, quantity, minquantity, createat],
       (err, result) => {
         if (err) {
+          console.log(err);
           return response.status(500).json({
             message: 'cannot connect to database',
             err,
@@ -151,6 +153,7 @@ class ProductController {
 
     pool.query('UPDATE products SET productname = ($1), price = ($2), quantity = ($3), createat = ($4) WHERE id = ($5)', [productname, price, quantity, createat, id], (err, result) => {
       if (err) {
+        console.log(err);
         return response.status(500).json({
           message: 'cannot connect to database',
           err,

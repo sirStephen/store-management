@@ -69,6 +69,7 @@ describe('Products', () => {
         response.should.be.json;
         response.body.should.be.a('object');
         response.body.should.have.property('message').eql('product was created');
+        console.log(error);
         done();
       });
   });
@@ -169,6 +170,7 @@ describe('Products', () => {
         response.should.be.json;
         response.body.should.be.a('object');
         response.body.should.have.property('message').eql('product id does not exist');
+        console.log(error);
         done();
       });
   });
@@ -183,6 +185,7 @@ describe('Products', () => {
         response.should.be.json;
         response.body.should.be.a('object');
         response.body.should.have.property('message').eql('Please make sure it is an integer');
+        console.log(error);
         done();
       });
   });
@@ -197,6 +200,7 @@ describe('Products', () => {
         response.should.be.json;
         response.body.should.be.a('object');
         response.body.should.have.property('message').eql('product id does not exist');
+        console.log(error);
         done();
       });
   });
