@@ -1,4 +1,5 @@
 [![travis build](https://img.shields.io/travis/sirStephen/store-management.svg?style=flat-square)](https://travis-ci.org/sirStephen/store-management)
+[![Coverage Status](https://coveralls.io/repos/github/sirStephen/store-management/badge.svg?branch=ch-write-test-161645115)](https://coveralls.io/github/sirStephen/store-management?branch=ch-write-test-161645115)
 <a href="https://codeclimate.com/github/sirStephen/store-management/maintainability"><img src="https://api.codeclimate.com/v1/badges/7b4969b7145be6cde12b/maintainability" /></a>
 
 # Store-management
