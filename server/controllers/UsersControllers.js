@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import pool from '../db/index';
 
-class AuthControllers {
+class UsersControllers {
   static signup(request, response) {
     const {
       firstname, lastname, username, password, role,
@@ -17,7 +17,7 @@ class AuthControllers {
       }
 
       if (result.rowCount > 0) {
-        return response.status(400).json({
+        return response.status(409).json({
           message: 'username already exist',
         });
       }
@@ -68,7 +68,7 @@ class AuthControllers {
               id: result.rows[0].id,
               role: result.rows[0].role,
             },
-          }, process.env.JWT_KEY, { expiresIn: 86400 });
+          }, process.env.JWT_KEY, { expiresIn: 3.154e+7 });
           return response.status(200).json({
             message: 'you have successfully logged in',
             username: result.rows[0].username,
@@ -87,4 +87,4 @@ class AuthControllers {
   }
 }
 
-export default AuthControllers;
+export default UsersControllers;

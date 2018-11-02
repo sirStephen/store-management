@@ -1,11 +1,9 @@
 import { Pool } from 'pg';
+import dbConfig from '../../secrets/db_configuration';
 
-import {
-  user, host, database, port,
-} from '../../secrets/db_configuration';
+const pool = (!!process.env.NODE_ENV && (process.env.NODE_ENV === 'test')) ? new Pool(dbConfig.test) : new Pool(dbConfig.test);
 
-const pool = new Pool({
-  user, host, database, port,
-});
+console.log('===========================', pool);
+console.log('============================', process.env.NODE_ENV);
 
 export default pool;

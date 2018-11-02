@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (request, response) => response.status(200).send({
-  message: 'Yipeee! It is working',
+  message: 'Welcome to store management system.',
 }));
 
 app.use('/api/v1', productRoutes);

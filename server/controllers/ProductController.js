@@ -24,7 +24,7 @@ class ProductController {
     pool.query('SELECT * FROM products ORDER BY id ASC', (err, result) => {
       if (err) {
         return response.status(500).json({
-          message: 'cannot connect to database',
+          message: 'error in fetching',
           err,
         });
       }
@@ -61,13 +61,13 @@ class ProductController {
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
-      return error(response, 404, 'The product id must be an integer');
+      return error(response, 406, 'The product id must be an integer');
     }
 
     pool.query('SELECT * FROM products WHERE id = $1', [id], (err, result) => {
       if (err) {
         return response.status(500).json({
-          message: 'cannot connect to database',
+          message: 'error in fetching',
           err,
         });
       }
@@ -116,7 +116,7 @@ class ProductController {
         }
 
         if (result) {
-          return response.status(200).json({
+          return response.status(201).json({
             message: 'product was created',
           });
         }
@@ -164,7 +164,7 @@ class ProductController {
           });
         }
 
-        return response.status(400).json({
+        return response.status(404).json({
           message: 'product id does not exist',
         });
       }
@@ -191,7 +191,7 @@ class ProductController {
 
     // check if id is a number
     if (!(Number.isInteger(parseId))) {
-      return error(response, 404, 'Please make sure it is an integer');
+      return error(response, 406, 'Please make sure it is an integer');
     }
 
     pool.query('DELETE FROM products WHERE id = ($1)', [id], (err, result) => {
@@ -209,7 +209,7 @@ class ProductController {
           });
         }
 
-        return response.status(400).json({
+        return response.status(404).json({
           message: 'product id does not exist',
         });
       }
