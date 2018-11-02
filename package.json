@@ -4,10 +4,10 @@
   "description": "Store Manager is a web application that helps store owners manage sales and product inventory  records. This application is meant for use in a single store.",
   "main": "server.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test mocha 'server/test/*.js' --timeout 10000 --require babel-core/register --exit",
-    "dev-start": "nodemon --exec babel-watch server/server.js",
+    "test": "cross-env NODE_ENV=test mocha './server/test/*.js' --timeout 10000 --require babel-core/register --exit",
+    "dev-start": "nodemon --exec babel-watch ./server/server.js",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "start": "babel-node server/server.js",
+    "start": "cross-env NODE_ENV=production babel-node ./server/server.js",
     "test:setup": "psql -U admin -d storemanagement -f ./server/database/setup.sql",
     "test:pulldown": "psql -U admin -d storemanagement -f ./server/database/pulldown.sql"
   },
