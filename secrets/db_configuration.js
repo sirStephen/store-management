@@ -12,10 +12,10 @@ dbConfig.test = {
 
 
 dbConfig.local = {
-  user: process.env.TEST_DB_USER,
-  host: process.env.TEST_DB_HOST,
-  database: process.env.TEST_DB_NAME,
-  port: process.env.TEST_DB_PORT,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT,
 };
 
 
